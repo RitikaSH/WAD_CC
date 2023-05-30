@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Registration Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .container h2 {
+      text-align: center;
+    }
+
+    .container form {
+      padding: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .btn-register {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#registration-form').submit(function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        var username = $('#username').val();
+        var email = $('#email').val();
+        var password = $('#password').val();
+
+        // Simple validation
+        if (username === '' || email === '' || password === '') {
+          $('.error-message').text('Please enter all the required fields.');
+          return;
+        }
+
+        // You can perform further validation and registration steps here
+
+        // If registration is successful, redirect to a new page
+        window.location.href = 'welcome.html';
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>Registration</h2>
+    <form id="registration-form">
+      <div class="error-message"></div>
+      <input type="text" id="username" placeholder="Username">
+      <input type="email" id="email" placeholder="Email">
+      <input type="password" id="password" placeholder="Password">
+      <button type="submit" class="btn-register">Register</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Login Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .container h2 {
+      text-align: center;
+    }
+
+    .container form {
+      padding: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#login-form').submit(function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        var username = $('#username').val();
+        var password = $('#password').val();
+
+        // Simple validation
+        if (username === '' || password === '') {
+          $('.error-message').text('Please enter both username and password.');
+          return;
+        }
+
+        // You can perform further authentication checks here
+
+        // If authentication is successful, redirect to a new page
+        window.location.href = 'welcome.html';
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="login-form">
+      <div class="error-message"></div>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button type="submit" class="btn-login">Login</button>
+    </form>
+  </div>
+</body>
+</html>
